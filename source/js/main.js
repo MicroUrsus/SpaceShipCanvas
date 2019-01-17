@@ -45,6 +45,7 @@ window.onload = function () {
     let direction_u;
     let direction_d;
     let currentFrame = 6;
+    let destroy_enemy = 0;
     let context = canvas.getContext("2d");
     let player_shot = [];
     let enemy_shot = [];
@@ -87,7 +88,7 @@ window.onload = function () {
         UpdateGalaxy();
 
         Collisions();
-        stop_add_enemy = (boss_counter >= 5) ? true : false;
+        stop_add_enemy = (boss_counter >= 25) ? true : false;
 
         CreateAlien();
         UpdateAliens();
@@ -113,6 +114,7 @@ window.onload = function () {
         let text_life = `Life : ${ship.life}`;
         let text_score = `Score player : ${ship.score_player}`;
         let text_weapon = `Weapon ( Q | E ) : ${ship.weapon}`;
+        let text_destroy = `Destroy enemy : ${destroy_enemy}`;
 
         context = canvas.getContext("2d");
         context.fillStyle = "#56ff00";
@@ -121,6 +123,7 @@ window.onload = function () {
         context.fillText(text_weapon, 50 , 50);
         context.fillText(text_life, canvas.width / 3.5 , 50);
         context.fillText(text_score, canvas.width / 2 + 100, 50);
+        context.fillText(text_destroy, canvas.width / 2 + 900, 50);
     }
 
     function DrawShip() {
@@ -361,6 +364,7 @@ window.onload = function () {
                 target.heal--;
                 if (target.heal == 0) {
                     target.state = "hit";
+                    destroy_enemy++;
                     ship.score_player += target.price;
                     boss_counter++;
                 }
