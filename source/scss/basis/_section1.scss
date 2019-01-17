@@ -1,0 +1,15 @@
+﻿main {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  background: #000000;
+  height: 100vh;
+}
+
+canvas {
+  border-right: 5px  solid;
+  border-right-color:  $textcolor;
+  width: 100vw;
+  height: 100vh;
+  //background: url("../img/Nebula1.png");
+}

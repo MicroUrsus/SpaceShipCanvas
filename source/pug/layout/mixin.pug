@@ -1,0 +1,5 @@
+mixin link(name, href = "javascript:void(null);")
+    //- attributes == {class: "btn"}
+    a(href=href)&attributes(attributes)=name
+
+//+link('/foo', 'foo')(class="btn")
